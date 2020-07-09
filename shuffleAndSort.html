@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.column {
+  float: left;
+  width: 33%;
+}
+
+.row {
+	margin: 0 -5px;
+	width: 70%;
+	margin: 1%;
+	}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .title{
+	background-color: #333333;
+    height: 25px;
+    width: 80%;
+  }
+  
+  .row{
+	margin-left: 5%;
+    position: relative;
+    top: 40px;
+  }
+  
+  h1{
+	position: relative;
+    left: 120px;
+    color: #000 !important;
+	font-size: 14px;
+  }
+  
+  h6{
+	position: relative;
+    text-align: center;
+    left: -5px;
+	top: 5px;
+    color: #fff;
+  }
+  
+  .credit{
+	position: relative;
+    left: 32px;
+	top: 4px;
+  }
+  
+  .column {
+	background-color: #EFEFEF;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .buttons-div{
+	position: relative;
+    bottom: 422px;
+	left: 36px;
+  }
+  
+  button{
+	width: 100px !important;
+    height: 25px !important;
+  }
+  
+  .card {
+	width: 10px;
+  }
+}
+
+@media screen and (min-width: 1370px){
+	.buttons-div{
+		left: 1432px !important;
+	}
+}
+
+@media screen and (min-width: 600px) {
+  .credit{
+	position: relative;
+    bottom: 104px;
+    left: 370px;
+  }
+  
+  h6{
+	position: relative;
+    left: 400px;
+  }
+  
+  
+  h1{
+	font-size: 75px;
+  }
+  
+  button { 
+	margin-bottom: 20px;
+  }
+  
+  .buttons-div{
+	position: relative;
+    left: 1068px;
+    bottom: 545px;
+	width: 50px;
+  }
+}
+
+h1{
+	color: #fff
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1px;
+  text-align: center;
+  background-color: #2F454E;
+}
+
+button{
+	background-color: #72C3DC;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 5px #2B8EAD;
+    width: 200px;
+    height: 36px;
+	
+}
+</style>
+
+<script>
+	function shuffle() {
+		var container = document.getElementById("container");
+		var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('column'));
+		elementsArray.forEach(function(element){
+			container.removeChild(element);
+		})
+		shuffleArray(elementsArray);
+		elementsArray.forEach(function(element){
+			container.appendChild(element);
+		})
+	}
+
+	function shuffleArray(array) {
+		for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+		return array;
+	}
+	
+	function sort(){
+		location.reload(); // refresh in this scenario is the best possible solution to sort the divs, as the refresh time is negligible.
+	}
+</script>
+
+</head>
+<body>
+
+<div class="title">
+	<h6>
+		Shuffle and Sort
+	</h6>
+</div>
+
+<div class="row" id="container">
+  <div class="column">
+    <div style="background-color: #6F98A8" class="card">
+      <h1>1</h1>
+    </div>
+  </div>
+
+  <div class="column">
+    <div style="background-color: #2B8EAD" class="card">
+      <h1>2</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h1>3</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div style="background-color: #2B8EAD" class="card">
+      <h1>4</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h1>5</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div style="background-color: #BFBFBF" class="card">
+      <h1>6</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div style="background-color: #BFBFBF" class="card">
+      <h1>7</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div style="background-color: #6F98A8" class="card">
+      <h1>8</h1>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h1>9</h1>
+    </div>
+  </div>
+  
+</div>
+
+<div class="buttons-div">
+	<button onclick="shuffle()">Shuffle</button>
+	<button onclick="sort()">Sort</button>
+</div>
+
+<div class="credit">
+<i>
+Shuffle & Sort by Rahul Singh
+</i>
+</div>
+
+</body>
+</html>
